@@ -33,7 +33,8 @@ const ArticleStyle = styled.div`
     display: flex;
     flex-direction: row;
     padding: 0.5em; 
-    background: grey;
+    background-color: #daa1ac;  
+
 `
 
 const Container = styled.div`

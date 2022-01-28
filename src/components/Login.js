@@ -27,14 +27,15 @@ const Login = () => {
         e.preventDefault();
         axios.post(`http://localhost:5000/api/login`, user.credentials)
         .then(res => {
-            console.log(res)
+            
             localStorage.setItem('token',res.data.token)
             localStorage.setItem('username', res.data.username)
             localStorage.setItem('role', res.data.role)
             push('/view');
         })
         .catch(err => {
-            console.error(err)
+            console.log(err)
+            setError('Incorrect. Please Try Again')
         })
     } 
     
@@ -61,9 +62,12 @@ const Login = () => {
                 value={user.credentials.password}
                 />
                 </div>
-                <p id='error'>Error</p>
+                
                 <button id='submit'>Log in</button>
             </form>
+            {
+                  !error ? <p></p> : <p id='error'>{error}</p>
+            }
             
         </ModalContainer>
     </ComponentContainer>);
